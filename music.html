@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">KALA LIBAS</h2>
+            <h3 id="artist">KAKA</h3>
+            <div class="img_container">
+                <img src="/img/img_6.jpg" alt="">
+            </div>
+            <audio src="/sound/aman1.mp3"></audio>
+            <div class="music_controls">
+                <i class="fas fa-step-backward" id="prev" title="Previous"></i> 
+                <i class="fas fa-play main_button" id="play" title="Play"></i> 
+                <i class="fas fa-step-forward" id="next" title="Next"></i> 
+            </div>
+        </div>
+    </div>
+    <script>
+        const music= document.querySelector("audio");
+        const img = document.querySelector("img");
+        const play=document.getElementById("play");
+
+       let  isPlaying=false;
+       //for play 
+        const playMusic= () => {
+            isPlaying=true;
+            music.play();
+            play.classList.replace("fa-play","fa-pause");
+            img.classList.add("anime");
+        };
+        //for pause
+        const pauseMusic= () => {
+            isPlaying=false;
+            music.pause();
+            play.classList.replace("fa-pause","fa-play");
+            img.classList.add("anime");
+        };
+
+        play.addEventListener("click", () =>{
+            // if(isPlaying)
+            // {
+            //     pauseMusic();
+            // }
+            // else{
+            //     playMusic();
+            // }
+            isPlaying?pauseMusic():playMusic();
+        })
+
+     </script>
+</body>
+</html>
